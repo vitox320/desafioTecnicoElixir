@@ -9,7 +9,7 @@ To start your Phoenix server:
 
 ## Documentation API
 
-  ### Create Account: `http://localhost:4000/api/account/create/`: -> Criar usuário -> POST
+  ## POST: `http://localhost:4000/api/account/create/`: -> Criar usuário
     - `name`: `name`
     - `surname`: `surname`
     - `email` : `email`
@@ -17,21 +17,21 @@ To start your Phoenix server:
     - `initial_balance` : `700`
     - `password`: `password`
 
-  ### Login: `http://localhost:4000/api/account/login`: -> Login -> POST
+  ## POST: `http://localhost:4000/api/account/login`: -> Login
     - `email` : `email123@gmail.com`
     - `password` : `12345`
 
-  ### Show: `http://localhost:4000/api/account/show` -> Listagem de account -> GET
+  ## GET: `http://localhost:4000/api/account/show` -> Listagem de account
 
-  ### create: `http://localhost:4000/api/transaction/create` -> Criar conta -> POST
+  ## POST: `http://localhost:4000/api/transaction/create` -> Criar conta 
     - `transaction_value` : `100.0,`
     - `identity_receiving_account` : `2`
 
-  ### Transaction: `http://localhost:4000/api/transaction` -> Listagem de transações -> GET
+  ## GET: `http://localhost:4000/api/transaction` -> Listagem de transações 
 
-  ### Balance Current User: `http://localhost:4000/api/account/balance_current_user` -> Visualização de saldo -> GET
+  ## GET: `http://localhost:4000/api/account/balance_current_user` -> Visualização de saldo 
 
-  ### Filter_by_date: `http://localhost:4000/api/transaction/filter_by_date` -> Busca transações de por data -> POST
+  ## POST: `http://localhost:4000/api/transaction/filter_by_date` -> Busca transações de por data 
      - `initial_date`: `01/01/2022`
      - `end_date` : `01/02/2023`
     
