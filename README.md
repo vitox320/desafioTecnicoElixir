@@ -4,7 +4,7 @@
     * `http://localhost:4000/api/account/create/`: -> Criar usuário
       - `name`: `name`
       - `surname`: `surname`
-      - `email` : `email`
+      - `email` : `email123@gmail.com`
       - `cpf` : `123456`
       - `initial_balance` : `700`
       - `password`: `password`
