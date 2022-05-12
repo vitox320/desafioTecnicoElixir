@@ -9,31 +9,40 @@ To start your Phoenix server:
 
 ## Documentation API
 
-  ## POST: `http://localhost:4000/api/account/create/`: -> Criar usuário
-    - `name`: `name`
-    - `surname`: `surname`
-    - `email` : `email`
-    - `cpf` : `123456`
-    - `initial_balance` : `700`
-    - `password`: `password`
+  ## POST: 
+    * `http://localhost:4000/api/account/create/`: -> Criar usuário
+      - `name`: `name`
+      - `surname`: `surname`
+      - `email` : `email`
+      - `cpf` : `123456`
+      - `initial_balance` : `700`
+      - `password`: `password`
 
-  ## POST: `http://localhost:4000/api/account/login`: -> Login
-    - `email` : `email123@gmail.com`
-    - `password` : `12345`
+  ## POST:
+    * `http://localhost:4000/api/account/login`: -> Login
+      - `email` : `email123@gmail.com`
+      - `password` : `12345`
 
-  ## GET: `http://localhost:4000/api/account/show` -> Listagem de account
+  ## POST:
+    * `http://localhost:4000/api/transaction/create` -> Criar conta 
+      - `transaction_value` : `100.0,`
+      - `identity_receiving_account` : `2`
 
-  ## POST: `http://localhost:4000/api/transaction/create` -> Criar conta 
-    - `transaction_value` : `100.0,`
-    - `identity_receiving_account` : `2`
+  ## POST:
+    * `http://localhost:4000/api/transaction/filter_by_date` -> Busca transações de por data 
+       - `initial_date`: `01/01/2022`
+       - `end_date` : `01/02/2023`
 
-  ## GET: `http://localhost:4000/api/transaction` -> Listagem de transações 
+  ## GET: 
+    * `http://localhost:4000/api/account/show` -> Listagem de account
 
-  ## GET: `http://localhost:4000/api/account/balance_current_user` -> Visualização de saldo 
+  ## GET: 
+    * `http://localhost:4000/api/transaction` -> Listagem de transações 
 
-  ## POST: `http://localhost:4000/api/transaction/filter_by_date` -> Busca transações de por data 
-     - `initial_date`: `01/01/2022`
-     - `end_date` : `01/02/2023`
+  ## GET:
+    * `http://localhost:4000/api/account/balance_current_user` -> Visualização de saldo 
+
+ 
     
 
 
