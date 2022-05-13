@@ -19,24 +19,16 @@ defmodule DesafioBackendWeb.TransactionController do
       identity_sender_account = Account.find_by_id(current_id)
       receiving_account = Account.find_by_id(receive_id)
 
-      if identity_sender_account.initial_balance < transaction_value,
-        do:
+        if DesafioBackend.Transaction.verify_if_balance_is_lower_than_transaction_value(identity_sender_account,transaction_value) do
           conn
-          |> put_status(:bad_request)
-          |> json(%{message: "Saldo insuficiente!"})
+            |> put_status(:bad_request)
+            |> json(%{message: "Saldo insuficiente!"})
+            throw(%{message: "Saldo insuficiente!"})
+        end
 
-      identity_sender_account
-      |> Account.changeset(%{
-        initial_balance:
-          identity_sender_account.initial_balance - conn.body_params["transaction_value"]
-      })
-      |> Repo.update!()
+      DesafioBackend.Transaction.withdraw(identity_sender_account,conn.body_params["transaction_value"])
 
-      receiving_account
-      |> Account.changeset(%{
-        initial_balance: receiving_account.initial_balance + conn.body_params["transaction_value"]
-      })
-      |> Repo.update!()
+      DesafioBackend.Transaction.deposit(receiving_account, conn.body_params["transaction_value"])
 
       case DesafioBackend.Transaction.insert(conn.body_params, current_id) do
         {:ok, transaction} ->

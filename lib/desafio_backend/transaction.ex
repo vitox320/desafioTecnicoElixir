@@ -1,6 +1,9 @@
 defmodule DesafioBackend.Transaction do
   use Ecto.Schema
   alias DesafioBackend.Repo
+  alias DesafioBackend.Account
+
+
 
   import Ecto.Changeset
 
@@ -36,6 +39,30 @@ defmodule DesafioBackend.Transaction do
     %DesafioBackend.Transaction{identity_sender_account: id_current_user, data_processing: current_date }
     |> changeset(transaction)
     |> Repo.insert()
+  end
+
+  def verify_if_balance_is_lower_than_transaction_value(account,transaction_value) do
+    if account.initial_balance < transaction_value do
+      :true
+    else
+      :false
+    end
+  end
+
+  def deposit(account, transaction_value) do
+    account
+    |> Account.changeset(%{
+      initial_balance: account.initial_balance + transaction_value
+    })
+    |> Repo.update!()
+  end
+
+  def withdraw(account, transaction_value) do
+    account
+    |> Account.changeset(%{
+      initial_balance: account.initial_balance - transaction_value
+    })
+    |> Repo.update!()
   end
 
   def update(id, data) do
